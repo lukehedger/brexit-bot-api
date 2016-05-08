@@ -1,0 +1,32 @@
+{
+  "name": "brexit-bot-api",
+  "version": "1.0.0",
+  "description": "BrexitBot API",
+  "main": "server.js",
+  "scripts": {
+    "start": "per-env",
+    "start:development": "npm-run nodemon --watch server.js",
+    "start:production": "node server.js",
+    "start:db": "npm-run mongo-express -u admin -p admin -d brexitbot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukehedger/brexit-bot-api.git"
+  },
+  "keywords": [
+    "brexit",
+    "bot"
+  ],
+  "author": "Luke Hedger <luke.hedger@gmail.com> (http://www.level-out.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.15",
+    "per-env": "^1.0.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.1",
+    "mongo-express": "^0.30.54",
+    "nodemon": "^1.9.2"
+  }
+}
