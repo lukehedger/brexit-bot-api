@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "per-env",
-    "start:development": "npm-run nodemon --watch server.js",
+    "start:development": "npm-run nodemon server.js --watch controller/ --watch model/ --watch routes/ --watch service/",
     "start:production": "node server.js",
     "start:db": "npm-run mongo-express -u admin -p admin -d brexitbot"
   },
@@ -15,18 +15,20 @@
   },
   "keywords": [
     "brexit",
-    "bot"
+    "bot",
+    "api"
   ],
   "author": "Luke Hedger <luke.hedger@gmail.com> (http://www.level-out.com/)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.15",
-    "per-env": "^1.0.1"
+    "uniqid": "^3.0.0"
   },
   "devDependencies": {
-    "body-parser": "^1.15.1",
     "mongo-express": "^0.30.54",
+    "per-env": "^1.0.1",
     "nodemon": "^1.9.2"
   }
 }

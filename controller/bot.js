@@ -1,13 +1,15 @@
 const mongoose = require('mongoose')
-const schema = require('../model/Bot')
+// const schema = require('../model/Bot')
+//
+// const Bot = mongoose.model('Bot', schema)
 
-const Bot = mongoose.model('Bot', schema)
+// TODO - create models for bot collections
 
 module.exports = {
 
-  // TODO - write mongoose queries - http://mongoosejs.com/docs/queries.html
-
   greeting (req, res, next) {
+
+    // TODO - use bot/service
 
     res.json({
       greeting: 'hello'
@@ -19,6 +21,8 @@ module.exports = {
 
   poll (req, res, next) {
 
+    // TODO - use bot/service
+
     res.json({
       poll: true
     })
@@ -29,6 +33,8 @@ module.exports = {
 
   topic (req, res, next) {
 
+    // TODO - use bot/service
+
     res.json({
       topic: true
     })
@@ -37,10 +43,12 @@ module.exports = {
 
   },
 
-  quiz (req, res, next) {
+  spurious (req, res, next) {
+
+    // TODO - use bot/service
 
     res.json({
-      quiz: true
+      spurious: true
     })
 
     return next()
