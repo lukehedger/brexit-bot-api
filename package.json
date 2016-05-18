@@ -24,11 +24,12 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.15",
+    "mongoose-simple-random": "^0.3.3",
+    "per-env": "^1.0.1",
     "uniqid": "^3.0.0"
   },
   "devDependencies": {
     "mongo-express": "^0.30.54",
-    "per-env": "^1.0.1",
     "nodemon": "^1.9.2"
   }
 }

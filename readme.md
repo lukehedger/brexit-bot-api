@@ -46,5 +46,5 @@ mongod
 
 ### Start MongoDB GUI
 ```
-npm start:db
+npm run start:db
 ```

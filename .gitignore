@@ -16,5 +16,3 @@ Thumbs.db
 # Dependencies #
 ######################
 node_modules/
-
-db.json

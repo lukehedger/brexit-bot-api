@@ -1,14 +1,12 @@
 "use strict"
 
-const Bot = require('../shared/service')
+const Bot = require('./service')
 
 module.exports = {
 
   greeting (req, res, next) {
 
     let greeting = Bot.greeting()
-
-    console.log(greeting);
 
     res.json({
       greeting: greeting
@@ -20,10 +18,10 @@ module.exports = {
 
   poll (req, res, next) {
 
-    // TODO - use bot/service
+    let poll = Bot.poll('main')
 
     res.json({
-      poll: true
+      poll: poll
     })
 
     return next()
@@ -32,10 +30,10 @@ module.exports = {
 
   spurious (req, res, next) {
 
-    // TODO - use bot/service
+    let spurious = Bot.spurious()
 
     res.json({
-      spurious: true
+      spurious: spurious
     })
 
     return next()
@@ -44,10 +42,12 @@ module.exports = {
 
   topic (req, res, next) {
 
-    // TODO - use bot/service
+    let name = req.params.name
+
+    let topic = Bot.topic(name)
 
     res.json({
-      topic: true
+      topic: topic
     })
 
     return next()
