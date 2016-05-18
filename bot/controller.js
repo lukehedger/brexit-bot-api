@@ -1,18 +1,17 @@
-const mongoose = require('mongoose')
-// const schema = require('../model/Bot')
-//
-// const Bot = mongoose.model('Bot', schema)
+"use strict"
 
-// TODO - create models for bot collections
+const Bot = require('../shared/service')
 
 module.exports = {
 
   greeting (req, res, next) {
 
-    // TODO - use bot/service
+    let greeting = Bot.greeting()
+
+    console.log(greeting);
 
     res.json({
-      greeting: 'hello'
+      greeting: greeting
     })
 
     return next()
@@ -31,24 +30,24 @@ module.exports = {
 
   },
 
-  topic (req, res, next) {
-
-    // TODO - use bot/service
-
-    res.json({
-      topic: true
-    })
-
-    return next()
-
-  },
-
   spurious (req, res, next) {
 
     // TODO - use bot/service
 
     res.json({
       spurious: true
+    })
+
+    return next()
+
+  },
+
+  topic (req, res, next) {
+
+    // TODO - use bot/service
+
+    res.json({
+      topic: true
     })
 
     return next()

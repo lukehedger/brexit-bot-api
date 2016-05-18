@@ -2,9 +2,11 @@
 
 const mongoose = require('mongoose')
 const uniqid = require('uniqid')
-const schema = require('../model/Human')
+const schema = require('./model')
+const constants = require('./constants')
+const collection = constants.collection
 
-const Human = mongoose.model('Humans', schema)
+const Human = mongoose.model(collection, schema)
 
 module.exports = {
 

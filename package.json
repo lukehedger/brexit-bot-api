@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "per-env",
-    "start:development": "npm-run nodemon server.js --watch controller/ --watch model/ --watch routes/ --watch service/",
+    "start:development": "npm-run nodemon server.js --watch shared/ --watch bot/ --watch human/",
     "start:production": "node server.js",
     "start:db": "npm-run mongo-express -u admin -p admin -d brexitbot"
   },

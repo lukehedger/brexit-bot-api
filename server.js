@@ -1,7 +1,7 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
 const database = require('./database')
-const routes = require('./routes')
+const routes = require('./shared/routes')
 
 const SERVER_HOST = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 const SERVER_PORT = process.env.OPENSHIFT_NODEJS_PORT || 8000
