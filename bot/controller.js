@@ -1,42 +1,55 @@
 "use strict"
 
+const co = require('co')
 const Bot = require('./service')
 
 module.exports = {
 
   greeting (req, res, next) {
 
-    let greeting = Bot.greeting()
+    co(function* () {
 
-    res.json({
-      greeting: greeting
+      return yield Bot.greeting()
+
+    }).then( greeting => {
+
+      res.json({ greeting })
+
+      return next()
+
     })
-
-    return next()
 
   },
 
   poll (req, res, next) {
 
-    let poll = Bot.poll('main')
+    co(function* () {
 
-    res.json({
-      poll: poll
+      return yield Bot.poll('main')
+
+    }).then( poll => {
+
+      res.json({ poll })
+
+      return next()
+
     })
-
-    return next()
 
   },
 
   spurious (req, res, next) {
 
-    let spurious = Bot.spurious()
+    co(function* () {
 
-    res.json({
-      spurious: spurious
+      return yield Bot.spurious()
+
+    }).then( spurious => {
+
+      res.json({ spurious })
+
+      return next()
+
     })
-
-    return next()
 
   },
 
@@ -44,13 +57,17 @@ module.exports = {
 
     let name = req.params.name
 
-    let topic = Bot.topic(name)
+    co(function* () {
 
-    res.json({
-      topic: topic
+      return yield Bot.topic(name)
+
+    }).then( topic => {
+
+      res.json({ topic })
+
+      return next()
+
     })
-
-    return next()
 
   }
 

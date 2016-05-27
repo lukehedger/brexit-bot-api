@@ -13,9 +13,13 @@ const Topic = mongoose.model(collection.topic, schema.topic)
 
 exports.greeting = () => {
 
-  Greeting.findOneRandom((err, greeting) => {
+  return new Promise( (resolve, reject) => {
 
-    return err ? err : greeting
+    Greeting.findOneRandom((err, greeting) => {
+
+      return err ? reject(err) : resolve(greeting)
+
+    })
 
   })
 
@@ -23,19 +27,19 @@ exports.greeting = () => {
 
 exports.poll = (name) => {
 
-  Poll.findOne({ name: name }, (err, poll) => {
-
-    return err ? err : poll
-
-  })
+  return Poll.findOne({ name: name })
 
 }
 
 exports.spurious = () => {
 
-  Spurious.findOneRandom((err, spurious) => {
+  return new Promise( (resolve, reject) => {
 
-    return err ? err : spurious
+    Spurious.findOneRandom((err, spurious) => {
+
+      return err ? reject(err) : resolve(spurious)
+
+    })
 
   })
 
@@ -43,10 +47,6 @@ exports.spurious = () => {
 
 exports.topic = (name) => {
 
-  Topic.findOne({ name: name }, (err, topic) => {
-
-    return err ? err : topic
-
-  })
+  return Topic.findOne({ name: name })
 
 }
