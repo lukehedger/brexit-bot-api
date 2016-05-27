@@ -26,6 +26,7 @@
     "mongoose": "^4.4.15",
     "mongoose-simple-random": "^0.3.3",
     "per-env": "^1.0.1",
+    "sentiment": "^1.0.6",
     "uniqid": "^3.0.0"
   },
   "devDependencies": {

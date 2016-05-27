@@ -8,6 +8,8 @@ const collection = constants.collection
 
 const Human = mongoose.model(collection, schema)
 
+const Sentiment = require('../shared/service/sentiment')
+
 module.exports = {
 
   create (req, res, next) {
@@ -75,10 +77,12 @@ module.exports = {
 
   greeting (req, res, next) {
 
-    // TODO - use bot/service
+    let response = req.params.response
+
+    let sentiment = Sentiment.analysis(response)
 
     res.json({
-      greeting: 'hello'
+      sentiment: sentiment.score
     })
 
     return next()
@@ -99,10 +103,12 @@ module.exports = {
 
   spurious (req, res, next) {
 
-    // TODO - use bot/service
+    let response = req.params.response
+
+    let sentiment = Sentiment.analysis(response)
 
     res.json({
-      spurious: true
+      sentiment: sentiment.score
     })
 
     return next()
