@@ -1,13 +1,9 @@
 "use strict"
 
-const mongoose = require('mongoose')
+const co = require('co')
 const uniqid = require('uniqid')
-const schema = require('./model')
-const constants = require('./constants')
-const collection = constants.collection
 
-const Human = mongoose.model(collection, schema)
-
+const Human = require('./service')
 const Sentiment = require('../shared/service/sentiment')
 
 module.exports = {
@@ -19,12 +15,13 @@ module.exports = {
     let id = uniqid()
     let brexit = req.body.brexit || false
 
-    Human.create({
-      id: id,
-      brexit: brexit
-    }, (err, human) => {
+    co(function* () {
 
-      if (err) return next(err)
+      return yield Human.create({ id, brexit })
+
+    }).then( human => {
+
+      res.json({ human })
 
       res.sendStatus(200)
 
@@ -40,13 +37,13 @@ module.exports = {
 
     let id = req.params.id
 
-    Human.findOne({ id: id}, 'brexit', (err, human) => {
+    co(function* () {
 
-      if (err) return next(err)
+      return yield Human.read({ id })
 
-      res.json({
-        human: human
-      })
+    }).then( human => {
+
+      res.json({ human })
 
       return next()
 
@@ -61,13 +58,13 @@ module.exports = {
     let id = req.params.id
     let brexit = req.body.brexit
 
-    Human.findOneAndUpdate({ id: id }, { brexit: brexit }, (err, human) => {
+    co(function* () {
 
-      if (err) return next(err)
+      return yield Human.update({ id, brexit })
 
-      res.json({
-        human: human
-      })
+    }).then( human => {
+
+      res.json({ human })
 
       return next()
 
@@ -75,41 +72,13 @@ module.exports = {
 
   },
 
-  greeting (req, res, next) {
+  sentiment (req, res, next) {
 
-    let response = req.params.response
+    let text = req.params.text
 
-    let sentiment = Sentiment.analysis(response)
+    let sentiment = Sentiment.analysis(text)
 
-    res.json({
-      sentiment: sentiment.score
-    })
-
-    return next()
-
-  },
-
-  poll (req, res, next) {
-
-    // TODO - use bot/service
-
-    res.json({
-      poll: true
-    })
-
-    return next()
-
-  },
-
-  spurious (req, res, next) {
-
-    let response = req.params.response
-
-    let sentiment = Sentiment.analysis(response)
-
-    res.json({
-      sentiment: sentiment.score
-    })
+    res.json({ sentiment })
 
     return next()
 
