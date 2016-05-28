@@ -17,7 +17,7 @@ module.exports = {
 
     co(function* () {
 
-      return yield Human.create({ id, brexit })
+      return yield Human.create(id, brexit)
 
     }).then( human => {
 
@@ -39,7 +39,7 @@ module.exports = {
 
     co(function* () {
 
-      return yield Human.read({ id })
+      return yield Human.read(id)
 
     }).then( human => {
 
@@ -60,7 +60,7 @@ module.exports = {
 
     co(function* () {
 
-      return yield Human.update({ id, brexit })
+      return yield Human.update(id, brexit)
 
     }).then( human => {
 

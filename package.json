@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "BrexitBot API",
   "main": "server.js",
+  "engines" : { "node" : "~5.11.0" },
   "scripts": {
     "start": "per-env",
     "start:development": "npm-run nodemon server.js --watch shared/ --watch bot/ --watch human/",
     "start:production": "node server.js",
-    "start:db": "npm-run mongo-express -u admin -p admin -d brexitbot"
+    "start:db": "npm-run mongo-express -u admin -p admin -d brexitbot",
+    "deploy": "git push openshift"
   },
   "repository": {
     "type": "git",

@@ -8,19 +8,19 @@ const collection = constants.collection
 
 const Human = mongoose.model(collection, schema)
 
-exports.create = ({id, brexit}) => {
+exports.create = (id, brexit) => {
 
   return Human.create({ id, brexit })
 
 }
 
-exports.read = ({id}) => {
+exports.read = (id) => {
 
-  return Human.findOne({ id}, 'brexit')
+  return Human.findOne({ id }, 'brexit')
 
 }
 
-exports.update = ({id, brexit}) => {
+exports.update = (id, brexit) => {
 
   return Human.findOneAndUpdate({ id }, { brexit })
 
