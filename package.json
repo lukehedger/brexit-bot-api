@@ -5,10 +5,11 @@
   "main": "server.js",
   "engines" : { "node" : "~5.11.0" },
   "scripts": {
-    "start": "node server.js",
-    "develop": "npm-run nodemon server.js --watch shared/ --watch bot/ --watch human/",
+    "start": "per-env",
+    "start:development": "npm-run nodemon server.js --watch shared/ --watch bot/ --watch human/",
+    "start:production": "node server.js",
     "db": "npm-run mongo-express -u admin -p admin -d brexitbot",
-    "deploy": "git push openshift"
+    "deploy": "modulus deploy -p brexitbot"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "express": "^4.13.4",
     "mongoose": "^4.4.15",
     "mongoose-simple-random": "^0.3.3",
+    "per-env": "^1.0.1",
     "sentiment": "^1.0.6",
     "uniqid": "^3.0.0"
   },
