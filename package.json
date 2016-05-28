@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "BrexitBot API",
   "main": "server.js",
-  "engines" : { "node" : "~5.11.0" },
+  "engines": {
+    "node": "~5.11.0"
+  },
   "scripts": {
     "start": "per-env",
     "start:development": "npm-run nodemon server.js --watch shared/ --watch bot/ --watch human/",
@@ -25,6 +27,7 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "co": "^4.6.0",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.15",
     "mongoose-simple-random": "^0.3.3",
