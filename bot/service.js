@@ -6,6 +6,7 @@ const schema = require('./models')
 const constants = require('./constants')
 const collection = constants.collection
 
+const Farewell = mongoose.model(collection.farewell, schema.farewell)
 const Greeting = mongoose.model(collection.greeting, schema.greeting)
 const Poll = mongoose.model(collection.poll, schema.poll)
 const Spurious = mongoose.model(collection.spurious, schema.spurious)
@@ -62,5 +63,15 @@ exports.spurious = () => {
 exports.topic = (name) => {
 
   return Topic.findOne({ name })
+
+}
+
+exports.farewell = () => {
+
+  return new Promise( (resolve, reject) => {
+
+    Farewell.findOneRandom( (err, farewell) => err ? reject(err) : resolve(farewell) )
+
+  })
 
 }

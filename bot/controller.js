@@ -87,6 +87,22 @@ module.exports = {
 
     })
 
+  },
+
+  farewell (req, res, next) {
+
+    co(function* () {
+
+      return yield Bot.farewell()
+
+    }).then( farewell => {
+
+      res.json({ farewell })
+
+      return next()
+
+    })
+
   }
 
 }

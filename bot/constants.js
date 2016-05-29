@@ -1,4 +1,5 @@
 const collection = {
+  farewell: 'Farewells',
   greeting: 'Greetings',
   poll: 'Polls',
   spurious: 'Spuria',
