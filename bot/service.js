@@ -6,6 +6,7 @@ const schema = require('./models')
 const constants = require('./constants')
 const collection = constants.collection
 
+const CheckIn = mongoose.model(collection.checkin, schema.checkin)
 const Farewell = mongoose.model(collection.farewell, schema.farewell)
 const Greeting = mongoose.model(collection.greeting, schema.greeting)
 const Poll = mongoose.model(collection.poll, schema.poll)
@@ -71,6 +72,16 @@ exports.farewell = () => {
   return new Promise( (resolve, reject) => {
 
     Farewell.findOneRandom( (err, farewell) => err ? reject(err) : resolve(farewell) )
+
+  })
+
+}
+
+exports.checkin = () => {
+
+  return new Promise( (resolve, reject) => {
+
+    CheckIn.findOneRandom( (err, checkin) => err ? reject(err) : resolve(checkin) )
 
   })
 

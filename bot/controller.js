@@ -103,6 +103,22 @@ module.exports = {
 
     })
 
+  },
+
+  checkin (req, res, next) {
+
+    co(function* () {
+
+      return yield Bot.checkin()
+
+    }).then( checkin => {
+
+      res.json({ checkin })
+
+      return next()
+
+    })
+
   }
 
 }

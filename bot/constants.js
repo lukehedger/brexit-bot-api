@@ -1,4 +1,5 @@
 const collection = {
+  checkin: 'CheckIns',
   farewell: 'Farewells',
   greeting: 'Greetings',
   poll: 'Polls',

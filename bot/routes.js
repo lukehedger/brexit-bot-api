@@ -9,5 +9,6 @@ router.get( '/choice', controller.choice, (req, res, next) => next() )
 router.get( '/topic/:name', controller.topic, (req, res, next) => next() )
 router.get( '/spurious', controller.spurious, (req, res, next) => next() )
 router.get( '/farewell', controller.farewell, (req, res, next) => next() )
+router.get( '/checkin', controller.checkin, (req, res, next) => next() )
 
 module.exports = router
