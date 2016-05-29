@@ -11,13 +11,13 @@ const Poll = mongoose.model(collection.poll, schema.poll)
 const Spurious = mongoose.model(collection.spurious, schema.spurious)
 const Topic = mongoose.model(collection.topic, schema.topic)
 
-exports.greeting = () => {
+exports.greeting = (visited) => {
 
   return new Promise( (resolve, reject) => {
 
-    Greeting.findOneRandom((err, greeting) => {
+    Greeting.findRandom({ visited }, { message: 1 }, { limit: 1 }, (err, greeting) => {
 
-      return err ? reject(err) : resolve(greeting)
+      return err ? reject(err) : resolve(greeting[0])
 
     })
 

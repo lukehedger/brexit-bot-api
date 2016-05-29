@@ -7,9 +7,11 @@ module.exports = {
 
   greeting (req, res, next) {
 
+    let visited = req.params.visited == 'true'
+
     co(function* () {
 
-      return yield Bot.greeting()
+      return yield Bot.greeting(visited)
 
     }).then( greeting => {
 
