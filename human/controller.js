@@ -76,11 +76,19 @@ module.exports = {
 
     let text = req.params.text
 
-    let sentiment = Sentiment.analysis(text)
+    let score = Sentiment.analysis(text)
 
-    res.json({ sentiment })
+    co(function* () {
 
-    return next()
+      return yield Sentiment.message(score)
+
+    }).then( sentiment => {
+
+      res.json({ sentiment })
+
+      return next()
+
+    })
 
   }
 
