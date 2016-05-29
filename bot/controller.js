@@ -23,6 +23,22 @@ module.exports = {
 
   },
 
+  choice (req, res, next) {
+
+    co(function* () {
+
+      return yield Bot.choice()
+
+    }).then( topics => {
+
+      res.json({ topics })
+
+      return next()
+
+    })
+
+  },
+
   poll (req, res, next) {
 
     co(function* () {

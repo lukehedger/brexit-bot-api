@@ -25,9 +25,23 @@ exports.greeting = (visited) => {
 
 }
 
+exports.choice = () => {
+
+  return new Promise( (resolve, reject) => {
+
+    Topic.findRandom({}, { name: 1 }, { limit: 3 }, (err, topics) => {
+
+      return err ? reject(err) : resolve(topics)
+
+    })
+
+  })
+
+}
+
 exports.poll = (name) => {
 
-  return Poll.findOne({ name: name })
+  return Poll.findOne({ name })
 
 }
 
@@ -47,6 +61,6 @@ exports.spurious = () => {
 
 exports.topic = (name) => {
 
-  return Topic.findOne({ name: name })
+  return Topic.findOne({ name })
 
 }
