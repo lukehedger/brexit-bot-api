@@ -25,3 +25,23 @@ exports.update = (id, brexit) => {
   return Human.findOneAndUpdate({ id }, { brexit })
 
 }
+
+exports.poll = () => {
+
+  return new Promise( (resolve, reject) => {
+
+    let results = { brexit: 0, bremain: 0 }
+
+    Human.find({}, 'brexit', (err, humans) => {
+
+      if (err) return reject(err)
+
+      humans.map( h => h.brexit ? results.brexit++ : results.bremain++ )
+
+      return resolve(results)
+
+    })
+
+  })
+
+}

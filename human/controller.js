@@ -60,11 +60,15 @@ module.exports = {
 
     co(function* () {
 
-      return yield Human.update(id, brexit)
+      // update human AND THEN get current poll results
+      return yield {
+        human: Human.update(id, brexit),
+        poll: Human.poll()
+      }
 
-    }).then( human => {
+    }).then( ({ human, poll }) => {
 
-      res.json({ human })
+      res.json({ human, poll })
 
       return next()
 
