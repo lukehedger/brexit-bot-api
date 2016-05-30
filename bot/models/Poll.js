@@ -3,9 +3,15 @@ const Schema = mongoose.Schema
 
 const Poll = new Schema({
   name: String,
-  message: String,
-  options: Array,
-  type: String
+  message: {
+    text: String,
+    options: Array,
+    image: String,
+    video: String,
+    audio: String,
+    chart: Object,
+    source: String
+  }
 })
 
 module.exports = Poll
