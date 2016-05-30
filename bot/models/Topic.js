@@ -4,6 +4,8 @@ const Schema = mongoose.Schema
 
 const Topic = new Schema({
   name: String,
+  text: String,
+  next: String,
   message: {
     text: String,
     options: Array,
