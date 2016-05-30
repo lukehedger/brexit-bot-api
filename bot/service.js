@@ -31,7 +31,7 @@ exports.choice = () => {
 
   return new Promise( (resolve, reject) => {
 
-    Topic.findRandom({}, { name: 1 }, { limit: 3 }, (err, topics) => {
+    Topic.findRandom({}, { name: 1, text: 1, next: 1 }, { limit: 3 }, (err, topics) => {
 
       return err ? reject(err) : resolve(topics)
 
