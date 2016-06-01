@@ -16,13 +16,13 @@ exports.create = (id, brexit) => {
 
 exports.read = (id) => {
 
-  return Human.findOne({ id }, 'brexit')
+  return Human.findOne({ id })
 
 }
 
 exports.update = (id, brexit) => {
 
-  return Human.findOneAndUpdate({ id }, { brexit })
+  return Human.findOneAndUpdate({ id }, { brexit }, { new: true })
 
 }
 
