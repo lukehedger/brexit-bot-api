@@ -27,7 +27,7 @@ module.exports = {
 
       return next()
 
-    })
+    }, e => next(e) )
 
   },
 
@@ -47,7 +47,7 @@ module.exports = {
 
       return next()
 
-    })
+    }, e => next(e) )
 
   },
 
@@ -72,7 +72,7 @@ module.exports = {
 
       return next()
 
-    })
+    }, e => next(e) )
 
   },
 
@@ -92,7 +92,7 @@ module.exports = {
 
       return next()
 
-    })
+    }, e => next(e) )
 
   }
 
